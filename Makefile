@@ -1,12 +1,8 @@
 NAME = physix
 
-SRC = main.cpp
+SRC = main.cpp Phyvec.cpp
 
 SRC_PATH = src/
-
-LIB = physix.hpp
-
-LIB_PATH = lib/
 
 all: $(NAME)
 
