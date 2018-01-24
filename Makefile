@@ -7,7 +7,7 @@ SRC_PATH = src/
 all: $(NAME)
 
 $(NAME):
-	g++ -v -I lib -o $(NAME) $(addprefix $(SRC_PATH), $(SRC))
+	g++ -I lib -o $(NAME) $(addprefix $(SRC_PATH), $(SRC))
 
 clean:
 	rm -rf $(NAME)
