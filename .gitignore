@@ -1,2 +1,4 @@
 *.exe
 lib/boost_1_66_0
+lib/boost
+.gitignore
