@@ -5,6 +5,11 @@
 
 # include <iostream>
 
+# include "boost/multiprecision/cpp_int.hpp"
+# include "boost/multiprecision/float128.hpp"
+
+using namespace boost::multiprecision;
+
 class Phyvec {
 
     public:
@@ -12,24 +17,24 @@ class Phyvec {
         Phyvec( unsigned int d = 3, unsigned int flag = 0x0 );
         ~Phyvec( void );
 
-        double          getX() const;
-        double          getY() const;
-        double          getZ() const;
-        double          getW() const;
-        void            setX( double x );
-        void            setY( double y );
-        void            setZ( double z );
-        void            setW( double w );
+        float128          getX() const;
+        float128          getY() const;
+        float128          getZ() const;
+        float128          getW() const;
+        void            setX( float128 x );
+        void            setY( float128 y );
+        void            setZ( float128 z );
+        void            setW( float128 w );
 
         unsigned int    getDim() const;
         void            setDim( unsigned int d );
 
     private:
 
-        double          _x;
-        double          _y;
-        double          _z;
-        double          _w;
+        float128          _x;
+        float128          _y;
+        float128          _z;
+        float128          _w;
         unsigned int    _dim; // Vector dimension
         unsigned int    _flag;
 };

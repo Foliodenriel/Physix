@@ -1,23 +1,21 @@
 #include "physix.hpp"
+#include "PhyObject.hpp"
 #include <iostream>
+#include <math.h>
+#include "boost/multiprecision/cpp_int.hpp"
+#include "boost/multiprecision/float128.hpp"
 
 using namespace std;
+using namespace boost::multiprecision;
 
 int main(int argc, char **argv)
 {
-    Phyvec *p = new Phyvec(2);
+    PhyObject *p = new PhyObject("Earth");
 
-    p->setX(21);
-    p->setY(42);
-    p->setZ(84);
-    cout << "Dimension: " << p->getDim() << endl;
-    cout << *p << endl;
-    cout << "Z: " << p->getZ() << endl;
+    p->setMass(PhyConst::EARTH_MASS);
+    p->setRadius(PhyConst::EARTH_RADIUS);
+    p->update();
+    cout << "g = " << p->getGravitationalAcceleration() << endl;
 
-    p->setDim(3);
-    p->setZ(84);
-    cout << "Dimension: " << p->getDim() << endl;
-    cout << *p << endl;
-    cout << "Z: " << p->getZ() << endl;
     return 0;
 }

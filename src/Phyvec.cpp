@@ -19,32 +19,32 @@ Phyvec::~Phyvec( void ) {
     return ;
 }
 
-double          Phyvec::getX() const { return this->_x; }
+float128        Phyvec::getX() const { return this->_x; }
 
-double          Phyvec::getY() const { return this->_y; }
+float128        Phyvec::getY() const { return this->_y; }
 
-double          Phyvec::getZ() const { return this->_z; }
+float128        Phyvec::getZ() const { return this->_z; }
 
-double          Phyvec::getW() const { return this->_w; }
+float128        Phyvec::getW() const { return this->_w; }
 
-void            Phyvec::setX( double x ) {
+void            Phyvec::setX( float128 x ) {
 
     this->_x = x;
 }
 
-void            Phyvec::setY( double y ) {
+void            Phyvec::setY( float128 y ) {
 
     if (this->_dim >= 2)
         this->_y = y;
 }
 
-void            Phyvec::setZ( double z ) {
+void            Phyvec::setZ( float128 z ) {
 
     if (this->_dim >= 3)
         this->_z = z;
 }
 
-void            Phyvec::setW( double w ) {
+void            Phyvec::setW( float128 w ) {
 
     if (this->_dim == 4)
         this->_w = w;
