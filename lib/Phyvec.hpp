@@ -26,6 +26,10 @@ class Phyvec {
         void            setZ( float128 z );
         void            setW( float128 w );
 
+        float128        getNorme() const;
+        void            setNorme( float128 n );
+        void            normalize();
+
         unsigned int    getDim() const;
         void            setDim( unsigned int d );
 

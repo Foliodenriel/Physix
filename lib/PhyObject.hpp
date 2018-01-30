@@ -7,6 +7,8 @@
 # include "boost/multiprecision/cpp_int.hpp"
 # include "boost/multiprecision/float128.hpp"
 
+# include "Phyvec.hpp"
+
 using namespace boost::multiprecision;
 
 namespace PhyConst {
@@ -24,7 +26,7 @@ class PhyObject {
         PhyObject( std::string name = "" );
         ~PhyObject( void );
 
-        void            update( void );
+        void            update( float128 d );
 
         std::string     getName() const;
         void            setName( std::string n );
@@ -33,15 +35,25 @@ class PhyObject {
         void            setMass( float128 m );
         float128        getRadius() const;
         void            setRadius( float128 r );
-        float128        getGravitationalAcceleration() const;
 
+        float128        getGravitationalAcceleration() const;
+        Phyvec          getForce() const;
+        void            addForce( Phyvec f, float128 n );
+        void            clearForce();
+
+        static size_t   getNbInst();
 
     private:
 
-        std::string _name;
-        float128    _mass;                           // In Kg
-        float128    _radius;                         // In m
-        float128    _gravitationalAcceleration;      // In m/s^2
+        std::string         _name;
+        float128            _mass;                           // In Kg
+        float128            _radius;                         // In m
+        float128            _gravitationalAcceleration;      // In m/s^2
+        float128            _acceleration;                   // In m/s^2
+        Phyvec              _force;                          // In N or kg/m/s^2
+        std::list<Phyvec>   _forceList;
+
+        static size_t   _nbInst;
 
 };
 

@@ -50,6 +50,41 @@ void            Phyvec::setW( float128 w ) {
         this->_w = w;
 }
 
+float128        Phyvec::getNorme() const {
+
+    if (this->_dim == 1)
+        return  sqrt(pow(this->_x, 2));
+    else if (this->_dim == 2)
+        return  sqrt(pow(this->_x, 2) +
+                pow(this->_y, 2));
+    else if (this->_dim == 3)
+        return  sqrt(pow(this->_x, 2) +
+                pow(this->_y, 2) +
+                pow(this->_z, 2));
+    else if (this->_dim == 4)
+        return  sqrt(pow(this->_x, 2) +
+                pow(this->_y, 2) +
+                pow(this->_z, 2) +
+                pow(this->_w, 2));
+}
+
+void            Phyvec::setNorme( float128 n ) {
+
+    this->_x = this->_x * n;
+    this->_y = this->_y * n;
+    this->_z = this->_z * n;
+    this->_w = this->_w * n;
+}
+
+void            Phyvec::normalize() {
+
+    float128 n = this->getNorme();
+    this->_x = this->_x / n;
+    this->_y = this->_y / n;
+    this->_z = this->_z / n;
+    this->_w = this->_w / n;
+}
+
 unsigned int    Phyvec::getDim() const { return this->_dim; }
 
 void            Phyvec::setDim( unsigned int d ) {
